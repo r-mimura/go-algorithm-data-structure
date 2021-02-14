@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"os"
 )
+
 //INF : 十分大きな値
-const INF = 999999
+const INF = 1000000009
 
 func main() {
 	r := bufio.NewReader(os.Stdin)
@@ -19,12 +20,17 @@ func main() {
 	for i := 0; i < N; i++ {
 		fmt.Fscan(r, &a[i])
 	}
+
 	minVal := INF
+	maxVal := -INF
 	for i := 0; i < N; i++ {
-		if  a[i] < minVal{
+		if a[i] < minVal {
 			minVal = a[i]
 		}
+		if a[i] > maxVal {
+			maxVal = a[i]
+		}
 	}
-	fmt.Fprintln(w, minVal)
+	fmt.Fprintln(w, maxVal-minVal)
 
 }
